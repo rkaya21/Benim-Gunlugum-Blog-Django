@@ -1,4 +1,9 @@
 {% load static %}
+{% load i18n %}
+{% get_current_language as CURRENT_LANGUAGE %}
+{% get_available_languages as AVAILABLE_LANGUAGES %}
+{% get_language_info_list for AVAILABLE_LANGUAGES as languages %}
+
 
 <!DOCTYPE html>
 <html lang="en">
@@ -15,9 +20,9 @@
 </head>
 
 <!-- Üst kısımda yer alan logo -->
-<div class="container text-center mt-4">
-    <img width="230" src="media/dimg/logo.png" alt="Logo" class="img-fluid">
-    <p class="text-light">Your Demo Logo</p>
+<div>
+    <img width="1460" height="250"src="media/dimg/logo.png" alt="Logo" class="logo">
+    <p class="text-light">My Logo</p>
 </div>
 
 <!-- Navbar -->
@@ -30,37 +35,38 @@
         <div class="collapse navbar-collapse justify-content-between" id="navbarNav">
             <ul class="navbar-nav">
                 <li class="nav-item">
-                    <a class="nav-link" href="{% url 'index' %}">Homepage</a>
+                    <a class="nav-link" href="{% url 'index' %}">{% translate 'Ana Sayfa' %}</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="{% url 'about' %}">About</a>
+                    <a class="nav-link" href="{% url 'about' %}">{% translate 'Hakkımda' %}</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="{% url 'services' %}">Services</a>
+                    <a class="nav-link" href="{% url 'services' %}">{% translate 'Hizmetler' %}</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="{% url 'blog' %}">Blogs</a>
+                    <a class="nav-link" href="{% url 'blog' %}">{% translate 'Blog' %}</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="{% url 'contact' %}">Contact</a>
+                    <a class="nav-link" href="{% url 'contact' %}">{% translate 'İletişim' %}</a>
                 </li>
             </ul>
             <div class="d-flex">
                 <div class="dropdown">
-                    <button class="btn btn-secondary dropdown-toggle" type="button" id="languageDropdown"
-                        data-bs-toggle="dropdown" aria-expanded="false">
-                        Language
+                    <button class="btn btn-secondary dropdown-toggle" type="button" id="languageDropdown" data-bs-toggle="dropdown" aria-expanded="false">
+                        {% translate 'Seçili Dil' %} {{ CURRENT_LANGUAGE }}
                     </button>
                     <ul class="dropdown-menu" aria-labelledby="languageDropdown">
-                        <li><a class="dropdown-item" href="#">Türkçe</a></li>
-                        <li><a class="dropdown-item" href="#">İngilizce</a></li>
-                        <!-- Add more language options as needed -->
+                        {% for language in languages %}
+                             <li><a
+                                     {% if language.code == CURRENT_LANGUAGE %}
+                                         class="dropdown-item active"
+                                     {% else %}
+                                         class="dropdown-item"
+                                     {% endif %}    
+                                     href="{% url 'set-language' language.code %}">{{ language.name }}</a></li>
+                                     {% endfor %}
                     </ul>
                 </div>
-                <form class="d-flex ms-3">
-                    <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-                    <button class="btn btn-outline-light" type="submit">Search</button>
-                </form>
             </div>
         </div>
     </div>
@@ -78,7 +84,7 @@
         <div class="col-md-4 d-flex align-items-center ">
             <a href="/" class="mb-3 me-2 mb-md-0 text-body-secondary text-decoration-none lh-1">
                 <svg class="bi" width="30" height="24">
-                    <use xlink:href="#bootstrap"></use>
+                    <use href="#bootstrap"></use>
                 </svg>
             </a>
             <span class="mb-3 mb-md-0 text-light">© 2024 Recep Enes Kaya </span>

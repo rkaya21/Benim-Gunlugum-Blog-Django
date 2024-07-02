@@ -1,5 +1,6 @@
 {% extends 'base.html' %}
 {% load static %}
+{% load i18n %}
 
 {% block title %} Homepage Blog {% endblock %}
 {% block page_description %} Blog  {% endblock %}
@@ -34,7 +35,7 @@
     <!--About Me-->
 <div class="row mt-4 mb-4">
     <div class="col-md-8">
-        <h2 class="mb-4">About Me</h2>
+        <h2 class="mb-4">{% translate 'Hakkımda' %}</h2>
         <p>Hello, I'm Recep Enes, a second-year Management Information Systems student.
             Alongside completing my first year at B1 level in English,
             I delved into the world of software development with the C programming language.
@@ -43,7 +44,7 @@
             However, I later learned Python and I'm currently focusing on Django framework.
             I want to develop myself in the field of back-end.
         </p>
-        <a href="#" class="btn btn-primary">Learn More</a>
+        <a href="#" class="btn btn-primary">{% translate 'Daha Fazla' %}</a>
     </div>
 
     <div class="col-md-4">
@@ -54,7 +55,7 @@
 
 <!--Services-->
 <div class="row mt-4 mb-4">
-    <h2 class="mb-4">Services</h2>
+    <h2 class="mb-4">{% translate 'Hizmetler' %}</h2>
 
     <!-- Card 1 -->
     <div class="col-md-3 mt-3">
@@ -140,7 +141,7 @@
 
 <!--Blogs-->
 <div class="row mt-4 mb-4">
-    <h2 class="mb-4">Blogs</h2>
+    <h2 class="mb-4">{% translate 'Bloglar' %}</h2>
     <!-- Card 1 -->
     <div class="col-md-3">
         <div class="card">
@@ -148,7 +149,7 @@
             <div class="card-body">
                 <h5 class="card-title">Başlık 1</h5>
                 <p class="card-text">Açıklama metni buraya yazılır. Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-                <a href="#" class="btn btn-primary">Detaylar</a>
+                <a href="#" class="btn btn-primary">{% translate 'Detaylar' %}</a>
             </div>
         </div>
     </div>
@@ -160,7 +161,7 @@
             <div class="card-body">
                 <h5 class="card-title">Başlık 2</h5>
                 <p class="card-text">Açıklama metni buraya yazılır. Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-                <a href="#" class="btn btn-primary">Detaylar</a>
+                <a href="#" class="btn btn-primary">{% translate 'Detaylar' %}</a>
             </div>
         </div>
     </div>
@@ -172,7 +173,7 @@
             <div class="card-body">
                 <h5 class="card-title">Başlık 3</h5>
                 <p class="card-text">Açıklama metni buraya yazılır. Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-                <a href="#" class="btn btn-primary">Detaylar</a>
+                <a href="#" class="btn btn-primary">{% translate 'Detaylar' %}</a>
             </div>
         </div>
     </div>
@@ -183,7 +184,7 @@
             <div class="card-body">
                 <h5 class="card-title">Başlık 4</h5>
                 <p class="card-text">Açıklama metni buraya yazılır. Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-                <a href="#" class="btn btn-primary">Detaylar</a>
+                <a href="#" class="btn btn-primary">{% translate 'Detaylar' %}</a>
             </div>
         </div>
     </div>
