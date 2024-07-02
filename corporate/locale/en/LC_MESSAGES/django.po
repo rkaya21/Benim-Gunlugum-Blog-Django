@@ -1,0 +1,106 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2024-07-02 15:32+0300\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+#: corporate/settings.py:113
+msgid "Turkish"
+msgstr ""
+
+#: corporate/settings.py:114
+msgid "English"
+msgstr ""
+
+#: tcore/templates/about.html:13 tcore/templates/index.html:38
+#: templates/base.html:41
+msgid "Hakkımda"
+msgstr "About Me"
+
+#: tcore/templates/blog.html:15 tcore/templates/index.html:144
+msgid "Bloglar"
+msgstr "Blogs"
+
+#: tcore/templates/blog.html:25 tcore/templates/blog.html:35
+#: tcore/templates/index.html:152 tcore/templates/index.html:164
+#: tcore/templates/index.html:176 tcore/templates/index.html:187
+msgid "Detaylar"
+msgstr "Details"
+
+#: tcore/templates/blog.html:64 tcore/templates/blog.html:69
+msgid "Arama"
+msgstr "Search"
+
+#: tcore/templates/blog.html:77
+msgid "Popüler Blog"
+msgstr "Popular Blog"
+
+#: tcore/templates/blog.html:116
+msgid "Kategoriler"
+msgstr "Categories"
+
+#: tcore/templates/blog.html:133
+msgid "Etiketler"
+msgstr "Tags"
+
+#: tcore/templates/contact.html:12
+msgid "İletişim Formu"
+msgstr "Contact Form"
+
+#: tcore/templates/contact.html:15
+msgid "Ad Soyad"
+msgstr "Full Name"
+
+#: tcore/templates/contact.html:19
+msgid "Telefon"
+msgstr "Phone"
+
+#: tcore/templates/contact.html:23
+msgid "E-Posta"
+msgstr "Mail"
+
+#: tcore/templates/contact.html:27
+msgid "Mesaj"
+msgstr "Message"
+
+#: tcore/templates/contact.html:30
+msgid "Gönder"
+msgstr "Send"
+
+#: tcore/templates/index.html:47
+msgid "Daha Fazla"
+msgstr "Read More"
+
+#: tcore/templates/index.html:58 tcore/templates/services.html:12
+#: templates/base.html:44
+msgid "Hizmetler"
+msgstr "Services"
+
+#: templates/base.html:38
+msgid "Ana Sayfa"
+msgstr "Home"
+
+#: templates/base.html:47
+msgid "Blog"
+msgstr "Blog"
+
+#: templates/base.html:50
+msgid "İletişim"
+msgstr "Contact"
+
+#: templates/base.html:57
+msgid "Seçili Dil"
+msgstr "Selected Language"
