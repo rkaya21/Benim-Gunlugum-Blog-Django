@@ -1,5 +1,6 @@
 {% extends 'base.html' %}
 {% load static %}
+{% load i18n %}
 
 {% block title %}Hizmetlerimiz{% endblock %}
 {% block page_description %} Hizmetlerimiz sayfa içeriği {% endblock %}
@@ -8,7 +9,7 @@
 {% block content %}
 <!--Services-->
 <div class="row mt-4 mb-4">
-    <h2 class="mb-4">Services</h2>
+    <h2 class="mb-4">{% translate 'Hizmetler' %}</h2>
 
     <!-- Card 1 -->
     <div class="col-md-3 mt-3">
