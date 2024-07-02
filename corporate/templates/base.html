@@ -1,24 +1,101 @@
 {% load static %}
 
-
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="{% static 'css/style.css' %}">
-    <title>{% block title %} Base Title {% endblock %}</title>
-
+    <title>{% block title %}Corporate Site V1{% endblock %}</title>
+    <meta name="description" content="{% block page_description %}{% endblock %}">
+    <meta name="keywords" content="{% block page_keywords %}{% endblock %}">
+    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/bootstrap-icons.css' %}">
+    {% block extracss %} {% endblock %}
 </head>
+
+<!-- Üst kısımda yer alan logo -->
+<div class="container text-center mt-4">
+    <img width="230" src="img/logo.png" alt="Logo" class="img-fluid">
+    <p class="text-light">Your Demo Logo</p>
+</div>
+
+<!-- Navbar -->
+<nav style="margin-top: -20px !important" class="navbar navbar-expand-lg navbar-dark bg-dark mt-1">
+    <div class="container">
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse justify-content-between" id="navbarNav">
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link" href="index.html">Homepage</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="abouts.html">About</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="services.html">Services</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="blogs.html">Blogs</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="contact.html">Contact</a>
+                </li>
+            </ul>
+            <div class="d-flex">
+                <div class="dropdown">
+                    <button class="btn btn-secondary dropdown-toggle" type="button" id="languageDropdown"
+                        data-bs-toggle="dropdown" aria-expanded="false">
+                        Language
+                    </button>
+                    <ul class="dropdown-menu" aria-labelledby="languageDropdown">
+                        <li><a class="dropdown-item" href="#">Türkçe</a></li>
+                        <li><a class="dropdown-item" href="#">İngilizce</a></li>
+                        <!-- Add more language options as needed -->
+                    </ul>
+                </div>
+                <form class="d-flex ms-3">
+                    <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                    <button class="btn btn-outline-light" type="submit">Search</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</nav>
+
 <body>
-    <h1>{% block header %}{% endblock %}</h1>
-    <nav>
-        <ul>
-            <li><a href="{% url 'index' %}">Ana Sayfa</a></li>
-            <li><a href="{% url 'about' %}">Hakkımızda</a></li>
-        </ul>
-    </nav>
+    <div class="container mt-5">
 
     {% block content %}{% endblock %}
+
+    </div>
+
+    <!-- Footer -->
+    <footer class="fixed-bottom d-flex flex-wrap justify-content-between align-items-center  border-top bg-dark">
+        <div class="col-md-4 d-flex align-items-center ">
+            <a href="/" class="mb-3 me-2 mb-md-0 text-body-secondary text-decoration-none lh-1">
+                <svg class="bi" width="30" height="24">
+                    <use xlink:href="#bootstrap"></use>
+                </svg>
+            </a>
+            <span class="mb-3 mb-md-0 text-light">© 2024 Recep Enes Kaya </span>
+        </div>
+
+        <ul style="margin-right: 20px !important;" class="nav col-md-4 justify-content-end list-unstyled d-flex">
+            <li class="ms-3"><a class="text-light" href="#"><i class="bi bi-twitter"></i></a></li>
+            <li class="ms-3"><a class="text-light" href="#"><i class="bi bi-instagram"></i></a></li>
+            <li class="ms-3"><a class="text-light" href="#"><i class="bi bi-facebook"></i></a></li>
+            <li class="ms-3"><a class="text-light" href="#"><i class="bi bi-youtube"></i></a></li>
+        </ul>
+
+    </footer>
+
+    <script src="{% static 'js/bootstrap.bundle.min.js' %}"></script>
+    {% block js_files %}{% endblock %}
+
 </body>
+
 </html>
