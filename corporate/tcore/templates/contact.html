@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}İletişim{% endblock %}
+{% block page_description %} İletişim sayfa içeriği {% endblock %}
+
+{% block extracss %}{% endblock %}
+{% block content %}
+<!--Contacts-->
+<div class="container mt-4 mb-4">
+    <h2 class="mb-4">İletişim Formu</h2>
+    <form>
+        <div class="mb-3">
+            <label for="fullName" class="form-label">Ad Soyad</label>
+            <input type="text" class="form-control" id="fullName" name="fullName" required>
+        </div>
+        <div class="mb-3">
+            <label for="phoneNumber" class="form-label">Telefon</label>
+            <input type="tel" class="form-control" id="phoneNumber" name="phoneNumber" required>
+        </div>
+        <div class="mb-3">
+            <label for="email" class="form-label">E-Posta</label>
+            <input type="email" class="form-control" id="email" name="email" required>
+        </div>
+        <div class="mb-3">
+            <label for="message" class="form-label">Mesaj</label>
+            <textarea class="form-control" id="message" name="message" rows="4" required></textarea>
+        </div>
+        <button type="submit" class="btn btn-primary">Gönder</button>
+    </form>
+</div>
+<!--Contacts-->
+{% endblock %}
