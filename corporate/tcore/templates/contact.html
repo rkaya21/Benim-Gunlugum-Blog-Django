@@ -1,5 +1,6 @@
 {% extends 'base.html' %}
 {% load static %}
+{% load i18n %}
 
 {% block title %}İletişim{% endblock %}
 {% block page_description %} İletişim sayfa içeriği {% endblock %}
@@ -8,25 +9,25 @@
 {% block content %}
 <!--Contacts-->
 <div class="container mt-4 mb-4">
-    <h2 class="mb-4">İletişim Formu</h2>
+    <h2 class="mb-4">{% translate 'İletişim Formu' %}</h2>
     <form>
         <div class="mb-3">
-            <label for="fullName" class="form-label">Ad Soyad</label>
+            <label for="fullName" class="form-label">{% translate 'Ad Soyad' %}</label>
             <input type="text" class="form-control" id="fullName" name="fullName" required>
         </div>
         <div class="mb-3">
-            <label for="phoneNumber" class="form-label">Telefon</label>
+            <label for="phoneNumber" class="form-label">{% translate 'Telefon' %}</label>
             <input type="tel" class="form-control" id="phoneNumber" name="phoneNumber" required>
         </div>
         <div class="mb-3">
-            <label for="email" class="form-label">E-Posta</label>
+            <label for="email" class="form-label">{% translate 'E-Posta' %}</label>
             <input type="email" class="form-control" id="email" name="email" required>
         </div>
         <div class="mb-3">
-            <label for="message" class="form-label">Mesaj</label>
+            <label for="message" class="form-label">{% translate 'Mesaj' %}</label>
             <textarea class="form-control" id="message" name="message" rows="4" required></textarea>
         </div>
-        <button type="submit" class="btn btn-primary">Gönder</button>
+        <button type="submit" class="btn btn-primary">{% translate 'Gönder' %}</button>
     </form>
 </div>
 <!--Contacts-->
