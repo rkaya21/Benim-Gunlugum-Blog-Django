@@ -34,6 +34,8 @@ ALLOWED_HOSTS = []
 
 INSTALLED_APPS = [
     'tcore',
+    'ckeditor',
+    'modeltranslation',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -113,6 +115,9 @@ LANGUAGES = [
     ('tr', _('Turkish')),
     ('en', _('English')),
 ]
+
+MODELTRANSLATION_DEFAULT_LANGUAGE = 'tr'
+MODELTRANSLATION_LANGUAGE =('tr','en')
 
 TIME_ZONE = 'UTC'
 
