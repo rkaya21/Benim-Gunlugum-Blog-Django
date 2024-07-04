@@ -6,6 +6,7 @@ from .models import About, Service
 class AboutTranslationOptions(TranslationOptions):
     fields = ('title', 'content')
 
+
 @register(Service)
 class ServiceTranslationOptions(TranslationOptions):
     fields = ('title',)
