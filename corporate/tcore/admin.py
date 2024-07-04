@@ -1,7 +1,9 @@
 from django.contrib import admin
-from .models import Contact, About, Service, Slider, Category, Blog
+from .models import Contact, About, Service, Slider, Category, Blog, Setting
 from modeltranslation.admin import TranslationAdmin
 from .admin_mixins import CommonMedia
+
+
 
 
 @admin.register(Contact)
@@ -21,7 +23,7 @@ class AboutAdmin(admin.ModelAdmin):
 
 
 @admin.register(Service)
-class ServiceAdmin(TranslationAdmin,CommonMedia):
+class ServiceAdmin(TranslationAdmin, CommonMedia):
     last_display = ('title',)
 
 
@@ -36,5 +38,16 @@ class CategoryAdmin(TranslationAdmin, CommonMedia):
 
 
 @admin.register(Blog)
-class BlogAdmin(TranslationAdmin,CommonMedia):
-    list_display=('title', 'created_at', 'updated_at')
+class BlogAdmin(TranslationAdmin, CommonMedia):
+    list_display = ('title', 'created_at', 'updated_at')
+
+
+@admin.register(Setting)
+class SettingAdmin(TranslationAdmin, CommonMedia):
+    list_display = ('title',)
+
+    def has_add_permission(self, request, obj=None):
+        return False
+
+    def has_delete_permission(self, request, obj=None):
+        return False
