@@ -2,6 +2,7 @@ from django.db import models
 from ckeditor.fields import RichTextField
 from django.utils.text import slugify
 
+
 class Contact(models.Model):
     full_name = models.CharField(max_length=100)
     phone = models.CharField(max_length=15)
@@ -25,5 +26,6 @@ class Service(models.Model):
         super(Service, self).save(*args, **kwargs)
 
 
-
-
+class Slider(models.Model):
+    title = models.CharField(max_length=200)
+    image = models.ImageField(upload_to='sliders')
