@@ -64,3 +64,20 @@ class Blog(models.Model):
 
     def __str__(self):
         return self.title
+
+
+class Setting(models.Model):
+    logo_1 = models.ImageField(upload_to='dimg', null = True, blank = True)
+    logo_2 = models.ImageField(upload_to='dimg', null = True, blank = True)
+    title = models.CharField(max_length=255)
+    description = models.CharField(max_length=255)
+    keywords = models.CharField(max_length=255)
+    phone_fixed = models.CharField(max_length=15)
+    phone_mobile = models.CharField(max_length=15)
+    fax = models.CharField(max_length=15)
+    email = models.EmailField()
+    city = models.CharField(max_length=50)
+    district = models.CharField(max_length=50)
+    address = models.TextField()
+    postal_code = models.CharField(max_length=10)
+    instagram_url = models.URLField(max_length=255)
