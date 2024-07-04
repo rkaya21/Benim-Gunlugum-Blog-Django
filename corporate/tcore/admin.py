@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Contact, About, Service
+from .models import Contact, About, Service, Slider
 from modeltranslation.admin import TranslationAdmin
 from .admin_mixins import CommonMedia
 
@@ -10,7 +10,7 @@ class ContactAdmin(admin.ModelAdmin):
 
 
 @admin.register(About)
-class AboutAdmin(TranslationAdmin, CommonMedia):
+class AboutAdmin(admin.ModelAdmin):
     list_display = ('title',)
 
     def has_add_permission(self, request, obj=None):
@@ -21,5 +21,10 @@ class AboutAdmin(TranslationAdmin, CommonMedia):
 
 
 @admin.register(Service)
-class ServiceAdmin(TranslationAdmin):
+class ServiceAdmin(admin.ModelAdmin):
     last_display = ('title',)
+
+
+@admin.register(Slider)
+class SliderAdmin(admin.ModelAdmin):
+    list_display = ('title', 'image')
