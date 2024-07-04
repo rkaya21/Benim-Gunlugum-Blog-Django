@@ -1,5 +1,5 @@
 from modeltranslation.translator import register, TranslationOptions
-from .models import About, Service, Category, Blog
+from .models import About, Service, Category, Blog, Setting
 
 
 @register(About)
@@ -20,3 +20,8 @@ class CategoryTranslationOptions(TranslationOptions):
 @register(Blog)
 class BlogTranslationOptions(TranslationOptions):
     fields = ('title', 'content',)
+
+
+@register(Setting)
+class SettingTranslationOptions(TranslationOptions):
+    fields = ('title', 'description', 'keywords',)
