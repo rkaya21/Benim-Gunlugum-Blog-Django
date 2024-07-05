@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-07-02 15:32+0300\n"
+"POT-Creation-Date: 2024-07-04 11:38+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,12 +17,80 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-#: corporate/settings.py:113
+
+#: corporate/settings.py:115
 msgid "Turkish"
 msgstr ""
 
-#: corporate/settings.py:114
+#: corporate/settings.py:116
 msgid "English"
+msgstr ""
+
+#: tcore/models.py:8 tcore/templates/contact.html:15
+msgid "Ad Soyad"
+msgstr "Full Name"
+
+#: tcore/models.py:9 tcore/models.py:77
+msgid "Telefon Numarası"
+msgstr "Phone"
+
+#: tcore/models.py:11 tcore/templates/contact.html:27
+msgid "Mesaj"
+msgstr "Message"
+
+#: tcore/models.py:15 tcore/models.py:20 tcore/models.py:34 tcore/models.py:52
+#: tcore/models.py:73
+msgid "Başlık"
+msgstr "Title"
+
+#: tcore/models.py:16 tcore/models.py:21 tcore/models.py:54
+msgid "İçerik"
+msgstr "Content"
+
+#: tcore/models.py:35 tcore/models.py:53
+msgid "Resim"
+msgstr "Image"
+
+#: tcore/models.py:39
+msgid "İsim"
+msgstr "Name"
+
+#: tcore/models.py:55
+#, fuzzy
+#| msgid "Kategoriler"
+msgid "Kategori"
+msgstr "Categories"
+
+#: tcore/models.py:74
+msgid "Açıklama"
+msgstr "Description"
+
+#: tcore/models.py:75
+msgid "Kelimeler"
+msgstr "Keywords"
+
+#: tcore/models.py:76 tcore/templates/contact.html:19
+msgid "Telefon"
+msgstr "Phone"
+
+#: tcore/models.py:80
+msgid "Şehir"
+msgstr "City"
+
+#: tcore/models.py:81
+msgid "İlçe"
+msgstr "District"
+
+#: tcore/models.py:82
+msgid "Adres"
+msgstr "Adress"
+
+#: tcore/models.py:83
+msgid "Posta Kodu"
+msgstr "Postal Code"
+
+#: tcore/models.py:84
+msgid "Instagram"
 msgstr ""
 
 #: tcore/templates/about.html:13 tcore/templates/index.html:38
@@ -60,21 +128,9 @@ msgstr "Tags"
 msgid "İletişim Formu"
 msgstr "Contact Form"
 
-#: tcore/templates/contact.html:15
-msgid "Ad Soyad"
-msgstr "Full Name"
-
-#: tcore/templates/contact.html:19
-msgid "Telefon"
-msgstr "Phone"
-
 #: tcore/templates/contact.html:23
 msgid "E-Posta"
 msgstr "Mail"
-
-#: tcore/templates/contact.html:27
-msgid "Mesaj"
-msgstr "Message"
 
 #: tcore/templates/contact.html:30
 msgid "Gönder"
@@ -101,6 +157,6 @@ msgstr "Blog"
 msgid "İletişim"
 msgstr "Contact"
 
-#: templates/base.html:57
+#: templates/base.html:56
 msgid "Seçili Dil"
 msgstr "Selected Language"
