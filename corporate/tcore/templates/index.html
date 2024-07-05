@@ -10,48 +10,38 @@
 
 {% block content %}
     <!-- Slider -->
-
     <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
-    <div class="carousel-inner">
-        <div class="carousel-item active">
-            <img src="https://via.placeholder.com/800x300" class="d-block w-100" alt="First slide">
+        <div class="carousel-inner">
+            {% for slider in Sliders %}
+            <div class="carousel-item {% if forloop.first %}active{% endif %}">
+                <img src="media/{{ slider.image }}" class="d-block w-100" alt="{{ slider.title }}">
+            </div>
+            {% endfor %}
         </div>
-        <div class="carousel-item">
-            <img src="https://via.placeholder.com/800x301" class="d-block w-100" alt="Second slide">
-        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+        </button>
     </div>
-    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
-        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-        <span class="visually-hidden">Previous</span>
-    </button>
-    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
-        <span class="carousel-control-next-icon" aria-hidden="true"></span>
-        <span class="visually-hidden">Next</span>
-    </button>
-</div>
-
     <!-- Slider -->
 
-    <!--About Me-->
-<div class="row mt-4 mb-4">
-    <div class="col-md-8">
-        <h2 class="mb-4">{% translate 'Hakkımda' %}</h2>
-        <p>Hello, I'm Recep Enes, a second-year Management Information Systems student.
-            Alongside completing my first year at B1 level in English,
-            I delved into the world of software development with the C programming language.
-            I continued with C#, and my interest in web programming was sparked after developing skills in HTML, CSS, and JavaScript.
-            I then became interested in the NodeJs.
-            However, I later learned Python and I'm currently focusing on Django framework.
-            I want to develop myself in the field of back-end.
-        </p>
-        <a href="#" class="btn btn-primary">{% translate 'Daha Fazla' %}</a>
-    </div>
+    <!-- About Me -->
+    <div class="row mt-4 mb-4">
+        <div class="col-md-8">
+            <h2 class="mb-4">{{ Abouts.title }}</h2>
+            <p>{{ Abouts.content|safe|truncatechars:800 }}</p>
+            <a href="{% url 'about' %}" class="btn btn-primary">{% translate 'Daha Fazla' %}</a>
+        </div>
 
-    <div class="col-md-4">
-        <img src="https://via.placeholder.com/400x300" alt="Hakkımızda Resmi" class="img-fluid">
+        <div class="col-md-4">
+            <img src="https://via.placeholder.com/400x300" alt="Hakkımızda Resmi" class="img-fluid">
+        </div>
     </div>
-</div>
-<!--About Me→
+    <!-- About Me -->
 
 <! --Services-->
 <div class="row mt-4 mb-4">
