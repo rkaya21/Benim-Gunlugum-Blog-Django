@@ -2,9 +2,9 @@
 {% load static %}
 {% load i18n %}
 
-{% block title %} Homepage Blog {% endblock %}
-{% block page_description %} Blog  {% endblock %}
-{% block keywords %} recep,enes,kaya,felsefe Blog {% endblock %}
+{% block title %} {{ settings.title }} {% endblock %}
+{% block page_description %} {{ settings.description }} {% endblock %}
+{% block page_keywords %} {{ settings.keywords }} {% endblock %}
 
 {% block extracss %}{% endblock %}
 
@@ -53,7 +53,7 @@
 </div>
 <!--About Me→
 
-<!--Services-->
+<! --Services-->
 <div class="row mt-4 mb-4">
     <h2 class="mb-4">{% translate 'Hizmetler' %}</h2>
 
@@ -61,7 +61,7 @@
     <div class="col-md-3 mt-3">
         <div class="card">
             <div class="card-body">
-                <h5 class="card-title">Title</h5
+                <h5 class="card-title">Title</h5>
                 <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
             </div>
         </div>
@@ -139,7 +139,7 @@
 </div>
 <!--Services→
 
-<!--Blogs-->
+<! --Blogs-->
 <div class="row mt-4 mb-4">
     <h2 class="mb-4">{% translate 'Bloglar' %}</h2>
     <!-- Card 1 -->
@@ -189,8 +189,7 @@
         </div>
     </div>
 </div>
-</div>
-<!--Blogs-->
+    <!--Blogs-->
 
 
 {% endblock %}
