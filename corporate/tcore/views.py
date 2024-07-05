@@ -6,6 +6,8 @@ from django.urls.exceptions import Resolver404
 from urllib.parse import urlparse
 from django.http import HttpResponseRedirect
 
+from tcore.models import Blog
+
 
 def set_language(request, language):
     try:
@@ -35,6 +37,7 @@ class ServiceView(TemplateView):
 
 class BlogView(TemplateView):
     template_name = 'blog.html'
+    queryset = Blog.objects.all()
 
 
 class ContactView(TemplateView):
