@@ -11,17 +11,18 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{% block title %}Corporate Site V1{% endblock %}</title>
+    <title>{% block title %}Recep Enes Kaya{% endblock %}</title>
     <meta name="description" content="{% block page_description %}{% endblock %}">
     <meta name="keywords" content="{% block page_keywords %}{% endblock %}">
     <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
     <link rel="stylesheet" href="{% static 'css/bootstrap-icons.css' %}">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css">
     {% block extracss %} {% endblock %}
 </head>
 
 <!-- Üst kısımda yer alan logo -->
 <div>
-    <img width="1460" height="250"src="media/dimg/logo.png" alt="Logo" class="logo">
+    <img width="1460" height="250" src="{% static 'dimg/logo.png' %}" alt="logo" class="logo">
     <p class="text-light">My Logo</p>
 </div>
 
@@ -91,10 +92,9 @@
         </div>
 
         <ul style="margin-right: 20px !important;" class="nav col-md-4 justify-content-end list-unstyled d-flex">
-            <li class="ms-3"><a class="text-light" href="#"><i class="bi bi-twitter"></i></a></li>
-            <li class="ms-3"><a class="text-light" href="#"><i class="bi bi-instagram"></i></a></li>
-            <li class="ms-3"><a class="text-light" href="#"><i class="bi bi-facebook"></i></a></li>
-            <li class="ms-3"><a class="text-light" href="#"><i class="bi bi-youtube"></i></a></li>
+            <li class="ms-3"><a class="text-light" href="{{ settings.github_url }}"><i class="bi bi-github"></i></a></li>
+            <li class="ms-3"><a class="text-light" href="{{ settings.instagram_url }}"><i class="bi bi-instagram"></i></a></li>
+            <li class="ms-3"><a class="text-light" href="{{ settings.linkedin_url }}"><i class="bi bi-linkedin"></i></a></li>
         </ul>
 
     </footer>
