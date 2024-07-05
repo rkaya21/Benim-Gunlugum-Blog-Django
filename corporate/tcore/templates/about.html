@@ -2,45 +2,56 @@
 {% load static %}
 {% load i18n %}
 
-{% block title %}About Blog{% endblock %}
-{% block page_description %} Hakkımızda sayfa içeriği {% endblock %}
+{% block title %}{{ Abouts.title }}{% endblock %}
 
-{% block extracss %}{% endblock %}
+{% block extracss %}
+<style>
+    .shadow-box {
+        padding: 10px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        border-radius: 5px;
+    }
+    .link {
+        text-decoration: none;
+        color: #007bff;
+    }
+    .link:hover {
+        text-decoration: underline;
+    }
+</style>
+{% endblock %}
+
 {% block content %}
 <!--Hakkımızda-->
 <div class="row">
     <div class="col-md-12 mb-4">
-        <h2 class="mb-4">{% translate 'Hakkımda' %}</h2>
-        <p>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus lacinia dolor condimentum tellus vulputate, sed aliquet tortor semper. Curabitur gravida, enim vel varius maximus, dolor arcu tincidunt lectus, eget posuere sem purus ut purus. Integer condimentum, ante sit amet imperdiet tincidunt, ipsum dui egestas felis, a aliquet est elit quis tellus. Pellentesque tempor, leo eget lacinia gravida, erat est laoreet libero, vitae aliquet magna nunc at lectus. Aenean ultricies diam risus, sed luctus lectus fringilla id. Duis convallis convallis condimentum. Vestibulum gravida metus eu bibendum sollicitudin. Nullam dolor sapien, pulvinar a viverra non, auctor in nibh. Mauris vel est pulvinar, interdum lacus a, gravida quam. Integer ullamcorper, magna ac convallis rhoncus, dolor diam efficitur nunc, sed ultricies mauris libero at sem.
-        </p>
-       
-        <p>
-            Praesent faucibus lectus vitae ipsum congue, at eleifend odio sagittis. Maecenas dictum lacus orci, at facilisis lectus convallis at. Ut aliquam urna eget ultricies tincidunt. Cras tincidunt congue condimentum. Integer lacinia tortor pretium magna convallis sollicitudin. Proin quam nisi, mattis rhoncus imperdiet vitae, aliquam eu odio. Nam sed sapien et magna egestas sodales. Nam gravida elit felis, sit amet tincidunt lacus sollicitudin sit amet.
-        </p>
-       
-        <p>
-            Nulla facilisi. Pellentesque porta nunc quis tempus lacinia. Donec mi tellus, auctor sit amet elit sit amet, pharetra mattis mi. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam et lectus a purus condimentum pellentesque. Phasellus finibus, libero et ornare tempus, justo tellus ultricies metus, sit amet blandit ligula nunc aliquam felis. Quisque sit amet nulla ligula. Nullam id ipsum id mi elementum varius a maximus elit. Nunc vitae tellus sagittis, consequat tellus sit amet, feugiat eros.
-        </p>
-       
-        <p>
-            Sed fringilla nisl ornare enim dignissim, in pulvinar odio molestie. Nunc elementum augue dui, a posuere velit accumsan at. Nullam a semper sapien, semper mattis mauris. Proin vitae quam ac felis scelerisque feugiat. Suspendisse semper, tortor ut dignissim tempor, elit leo pretium purus, vitae pulvinar erat nisl a nisl. Aenean et condimentum nisl, sit amet imperdiet arcu. Donec lacus elit, molestie sit amet sem ut, volutpat commodo velit. Suspendisse porta at nisl at bibendum. Quisque purus nunc, molestie at cursus sit amet, sagittis in lectus. Sed fringilla eros vel massa facilisis pellentesque. In eget enim ante. Praesent vitae tortor elit. In hac habitasse platea dictumst. Integer eget viverra orci, sed laoreet mauris.
-        </p>
-       
-        <p>
-            Cras vitae egestas risus. Proin sit amet consectetur velit. Vivamus massa lacus, molestie a placerat ac, sagittis non mi. Vestibulum pulvinar, tortor placerat sollicitudin aliquam, urna tortor iaculis neque, eget sollicitudin enim magna at diam. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Morbi sit amet eros quis ex eleifend ultricies. Nulla id ex ornare felis gravida vestibulum cursus eu nunc.
-        </p>
-
-        <p>
-            Cras vitae egestas risus. Proin sit amet consectetur velit. Vivamus massa lacus, molestie a placerat ac, sagittis non mi. Vestibulum pulvinar, tortor placerat sollicitudin aliquam, urna tortor iaculis neque, eget sollicitudin enim magna at diam. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Morbi sit amet eros quis ex eleifend ultricies. Nulla id ex ornare felis gravida vestibulum cursus eu nunc.
-        </p>
-
-        <p>
-            Cras vitae egestas risus. Proin sit amet consectetur velit. Vivamus massa lacus, molestie a placerat ac, sagittis non mi. Vestibulum pulvinar, tortor placerat sollicitudin aliquam, urna tortor iaculis neque, eget sollicitudin enim magna at diam. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Morbi sit amet eros quis ex eleifend ultricies. Nulla id ex ornare felis gravida vestibulum cursus eu nunc.
-        </p>
+        <h2 class="mb-4">{{ Abouts.title }}</h2>
+        <p>{{ Abouts.content|safe }}</p>
     </div>
-
-   
+</div>
+<div class="row">
+    <div class="col-md-6 mb-4">
+        <div>
+            <img src="https://private-user-images.githubusercontent.com/116019903/292781033-6fb25c14-dfd9-4c38-bc79-a4af10e9fdce.png?jwt=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmF3LmdpdGh1YnVzZXJjb250ZW50LmNvbSIsImtleSI6ImtleTUiLCJleHAiOjE3MjAxODMzNTQsIm5iZiI6MTcyMDE4MzA1NCwicGF0aCI6Ii8xMTYwMTk5MDMvMjkyNzgxMDMzLTZmYjI1YzE0LWRmZDktNGMzOC1iYzc5LWE0YWYxMGU5ZmRjZS5wbmc_WC1BbXotQWxnb3JpdGhtPUFXUzQtSE1BQy1TSEEyNTYmWC1BbXotQ3JlZGVudGlhbD1BS0lBVkNPRFlMU0E1M1BRSzRaQSUyRjIwMjQwNzA1JTJGdXMtZWFzdC0xJTJGczMlMkZhd3M0X3JlcXVlc3QmWC1BbXotRGF0ZT0yMDI0MDcwNVQxMjM3MzRaJlgtQW16LUV4cGlyZXM9MzAwJlgtQW16LVNpZ25hdHVyZT01ODQ2MDc4MjhmYmExZjExZjJkMzM2ZjhlMWI2ZmE0MTc1NDdkMGNiMzYyMTU4NTkyNzM3NjcxNTA2NTIyNmRkJlgtQW16LVNpZ25lZEhlYWRlcnM9aG9zdCZhY3Rvcl9pZD0wJmtleV9pZD0wJnJlcG9faWQ9MCJ9.h4dlfEZi_TQzwjd4R4joRGnTdMy3tgodiFsnFWB7kKM" alt="resim" class="img-fluid" width="500" height="auto">
+        </div>
+    </div>
+    <div class="col-md-6 mb-4">
+        <div>
+            <img src="https://private-user-images.githubusercontent.com/116019903/292781120-5f7b99f2-20c0-4065-b3fd-6ce59c0349cc.png?jwt=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmF3LmdpdGh1YnVzZXJjb250ZW50LmNvbSIsImtleSI6ImtleTUiLCJleHAiOjE3MjAxODMzNTQsIm5iZiI6MTcyMDE4MzA1NCwicGF0aCI6Ii8xMTYwMTk5MDMvMjkyNzgxMTIwLTVmN2I5OWYyLTIwYzAtNDA2NS1iM2ZkLTZjZTU5YzAzNDljYy5wbmc_WC1BbXotQWxnb3JpdGhtPUFXUzQtSE1BQy1TSEEyNTYmWC1BbXotQ3JlZGVudGlhbD1BS0lBVkNPRFlMU0E1M1BRSzRaQSUyRjIwMjQwNzA1JTJGdXMtZWFzdC0xJTJGczMlMkZhd3M0X3JlcXVlc3QmWC1BbXotRGF0ZT0yMDI0MDcwNVQxMjM3MzRaJlgtQW16LUV4cGlyZXM9MzAwJlgtQW16LVNpZ25hdHVyZT04MmExMjkyNmMyYjQ5Zjg1YTA4MWZlZWIxZjhhNTVlYzdlZDg4Mzg5YzI4NjliMDBjOGQ3YWFjZmIyMTg1MDdlJlgtQW16LVNpZ25lZEhlYWRlcnM9aG9zdCZhY3Rvcl9pZD0wJmtleV9pZD0wJnJlcG9faWQ9MCJ9.eIQclvqZ96GVzg_XxHj5Ldmx1klozDRg1mIj6Jxn7bU" alt="resim" class="img-fluid" width="500" height="auto">
+        </div>
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-6 mb-4">
+        <div>
+            <img src="https://private-user-images.githubusercontent.com/116019903/292781124-f83f9d89-5860-4f1b-abf6-6f2ae0749df1.png?jwt=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmF3LmdpdGh1YnVzZXJjb250ZW50LmNvbSIsImtleSI6ImtleTUiLCJleHAiOjE3MjAxODM1MDQsIm5iZiI6MTcyMDE4MzIwNCwicGF0aCI6Ii8xMTYwMTk5MDMvMjkyNzgxMTI0LWY4M2Y5ZDg5LTU4NjAtNGYxYi1hYmY2LTZmMmFlMDc0OWRmMS5wbmc_WC1BbXotQWxnb3JpdGhtPUFXUzQtSE1BQy1TSEEyNTYmWC1BbXotQ3JlZGVudGlhbD1BS0lBVkNPRFlMU0E1M1BRSzRaQSUyRjIwMjQwNzA1JTJGdXMtZWFzdC0xJTJGczMlMkZhd3M0X3JlcXVlc3QmWC1BbXotRGF0ZT0yMDI0MDcwNVQxMjQwMDRaJlgtQW16LUV4cGlyZXM9MzAwJlgtQW16LVNpZ25hdHVyZT04N2U4NmEwNWQxYzE4NTg5OWU0ZDkxZWE2NTBlNzYwYzEyOWE3ZmEyNDkwMDUzZWE4NjAxZGJiMTEwOWQ1OTE2JlgtQW16LVNpZ25lZEhlYWRlcnM9aG9zdCZhY3Rvcl9pZD0wJmtleV9pZD0wJnJlcG9faWQ9MCJ9.PNgKY5Mo8FTT_mqkHFI4ny5LbsCQ2hBUw_waV3V5oo0" alt="resim" class="img-fluid" width="500" height="auto">
+        </div>
+    </div>
+    <div class="col-md-6 mb-4">
+        <div class="shadow-box">
+            <p>Projelerime göz atmak için tıklayınız: <a href="https://github.com/rkaya21" target="_blank" class="link">Tıkla!</a></p>
+        </div>
+    </div>
 </div>
 <!--Hakkımızda-->
 {% endblock %}
