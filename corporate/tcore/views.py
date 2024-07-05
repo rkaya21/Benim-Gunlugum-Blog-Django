@@ -1,4 +1,4 @@
-from django.views.generic import TemplateView
+from django.views.generic import TemplateView, ListView
 from django.conf import settings
 from django.utils import translation
 from django.urls.base import resolve, reverse
@@ -6,7 +6,7 @@ from django.urls.exceptions import Resolver404
 from urllib.parse import urlparse
 from django.http import HttpResponseRedirect
 
-from tcore.models import Blog
+from tcore.models import Blog, Slider, About
 
 
 def set_language(request, language):
@@ -23,12 +23,21 @@ def set_language(request, language):
     return HttpResponseRedirect(next_url)
 
 
-class IndexView(TemplateView):
+class IndexView(ListView):
     template_name = 'index.html'
+    model = Slider
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['Sliders'] = Slider.objects.all()
+        context['Abouts'] = About.objects.first()
+        return context
 
 
-class AboutView(TemplateView):
+class AboutView(ListView):
     template_name = 'about.html'
+    context_object_name = "Abouts"
+    queryset = About.objects.first()
 
 
 class ServiceView(TemplateView):
