@@ -4,6 +4,13 @@ from modeltranslation.admin import TranslationAdmin
 from .admin_mixins import CommonMedia
 
 
+class BaseAdmin(admin.ModelAdmin):
+
+    def has_add_permission(self, request, obj=None):
+        return False
+
+    def has_delete_permission(self, request, obj=None):
+        return False
 
 
 @admin.register(Contact)
@@ -12,14 +19,8 @@ class ContactAdmin(admin.ModelAdmin):
 
 
 @admin.register(About)
-class AboutAdmin(admin.ModelAdmin):
+class AboutAdmin(TranslationAdmin, BaseAdmin):
     list_display = ('title',)
-
-    def has_add_permission(self, request, obj=None):
-        return False
-
-    def has_delete_permission(self, request, obj=None):
-        return False
 
 
 @admin.register(Service)
@@ -43,11 +44,5 @@ class BlogAdmin(TranslationAdmin, CommonMedia):
 
 
 @admin.register(Setting)
-class SettingAdmin(TranslationAdmin, CommonMedia):
+class SettingAdmin(TranslationAdmin, CommonMedia, BaseAdmin):
     list_display = ('title',)
-
-    def has_add_permission(self, request, obj=None):
-        return False
-
-    def has_delete_permission(self, request, obj=None):
-        return False
