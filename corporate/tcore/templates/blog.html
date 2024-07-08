@@ -14,29 +14,18 @@
     <div class="col-md-8">
         <h2 class="mb-4">{% translate 'Bloglar' %}</h2>
         <!-- Blog Cards (Assuming you will have dynamic content) -->
-        <div class="col-md-12 mb-3">
+        <div class="col-md-4 mb-3">
             <!-- Card 1 -->
+            {% for blog in Blogs %}
             <div class="card mb-3">
-                <img src="https://via.placeholder.com/600x300" class="card-img-top" alt="Resim 1">
+                <img src="media/{{ blog.image }}" class="card-img-top" alt="{{ blog.title }}">
                 <div class="card-body">
-                    <h5 class="card-title">Başlık 1</h5>
-                    <p class="card-text">Açıklama metni buraya yazılır. Lorem ipsum dolor sit amet,
-                        consectetur adipiscing elit.</p>
+                    <h5 class="card-title">{{ blog.title }}</h5>
+                    <p class="card-text">{{ blog.content|safe|truncatechars:200 }}</p>
                     <a href="#" class="btn btn-primary">{% translate 'Detaylar' %}</a>
                 </div>
             </div>
-            <!-- Card 2 -->
-            <div class="card mb-3">
-                <img src="https://via.placeholder.com/600x300" class="card-img-top" alt="Resim 1">
-                <div class="card-body">
-                    <h5 class="card-title">Başlık 2</h5>
-                    <p class="card-text">Açıklama metni buraya yazılır. Lorem ipsum dolor sit amet,
-                        consectetur adipiscing elit.</p>
-                    <a href="#" class="btn btn-primary">{% translate 'Detaylar' %}</a>
-                </div>
-            </div>
-            <!-- Add more cards as needed -->
-
+            {% endfor %}
             <nav style="margin-bottom: 50px !important;" aria-label="Page navigation example">
                 <ul class="pagination">
                     <li class="page-item">
@@ -56,97 +45,7 @@
             </nav>
         </div>
     </div>
-
-    <!-- Sidebar Area -->
-    <div class="col-md-4">
-        <div class="card mb-3">
-            <div class="card-body">
-                <h5 class="card-title">{% translate 'Arama' %}</h5>
-                <form>
-                    <div class="mb-3">
-                        <input type="text" class="form-control" placeholder="Search...">
-                    </div>
-                    <button type="submit" class="btn btn-primary">{% translate 'Arama' %}</button>
-                </form>
-            </div>
-        </div>
-
-        <!-- Popular Blogs -->
-        <div class="card mb-3">
-            <div class="card-body">
-                <h5 class="card-title mb-4">{% translate 'Popüler Blog' %}</h5>
-                <ul class="list-group">
-                    <!-- Blog 1 -->
-                    <li class="list-group-item">
-                        <h5 class="card-title">Engaging Content Strategies</h5>
-                        <p class="card-text">Discover effective strategies for creating engaging and valuable
-                            content that resonates with your audience.</p>
-                    </li>
-                    <!-- Blog 2 -->
-                    <li class="list-group-item">
-                        <h5 class="card-title">Mastering the Art of Web Design</h5>
-                        <p class="card-text">Explore the principles of web design and learn how to create
-                            visually stunning and user-friendly websites.</p>
-                    </li>
-                    <!-- Blog 3 -->
-                    <li class="list-group-item">
-                        <h5 class="card-title">SEO Tips for Better Visibility</h5>
-                        <p class="card-text">Optimize your website for search engines with these practical SEO
-                            tips and enhance your online visibility.</p>
-                    </li>
-                    <!-- Blog 4 -->
-                    <li class="list-group-item">
-                        <h5 class="card-title">Social Media Marketing Strategies</h5>
-                        <p class="card-text">Unlock the power of social media with effective marketing
-                            strategies to grow your brand and engage your audience.</p>
-                    </li>
-                    <!-- Blog 5 -->
-                    <li class="list-group-item">
-                        <h5 class="card-title">E-commerce Success Stories</h5>
-                        <p class="card-text">Learn from successful e-commerce ventures and discover the key
-                            elements for building a thriving online business.</p>
-                    </li>
-                </ul>
-            </div>
-        </div>
-
-        <!-- Categories -->
-        <div class="card mb-3">
-            <div class="card-body">
-                <h5 class="card-title">{% translate 'Kategoriler' %}</h5>
-                <!-- List of categories -->
-                <ul class="list-group list-group-flush">
-                    <li class="list-group-item">Category 01</li>
-                    <li class="list-group-item">Category 02</li>
-                    <li class="list-group-item">Category 03</li>
-                    <li class="list-group-item">Category 04</li>
-                    <li class="list-group-item">Category 05</li>
-                    <li class="list-group-item">Category 06</li>
-                    <li class="list-group-item">Category 07</li>
-                </ul>
-            </div>
-        </div>
-
-        <!-- Tags Cloud -->
-        <div style="margin-bottom: 60px !important;" class="card mt-4">
-            <div class="card-body">
-                <h5 class="card-title">{% translate 'Etiketler' %}</h5>
-                <!-- Tags cloud -->
-                <div class="col-md-12">
-                    <button type="button" class="btn btn-secondary my-2 me-1">Tag 1</button>
-                    <button type="button" class="btn btn-secondary my-2 me-1">Tag 2</button>
-                    <button type="button" class="btn btn-secondary my-2 me-1">Tag 3</button>
-                    <button type="button" class="btn btn-secondary my-2 me-1">Tag 4</button>
-                    <button type="button" class="btn btn-secondary my-2 me-1">Tag 5</button>
-                    <button type="button" class="btn btn-secondary my-2 me-1">Tag 6</button>
-                    <button type="button" class="btn btn-secondary my-2 me-1">Tag 7</button>
-                    <button type="button" class="btn btn-secondary my-2 me-1">Tag 8</button>
-                </div>
-            </div>
-        </div>
-    </div>
+          {% include 'includes/sidebar.html' %}
 </div>
 <!--Blogs-->
-
-
 {% endblock %}
