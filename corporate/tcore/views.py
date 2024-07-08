@@ -6,7 +6,7 @@ from django.urls.exceptions import Resolver404
 from urllib.parse import urlparse
 from django.http import HttpResponseRedirect
 
-from tcore.models import Blog, Slider, About
+from tcore.models import Blog, Slider, About, Service
 
 
 def set_language(request, language):
@@ -31,6 +31,8 @@ class IndexView(ListView):
         context = super().get_context_data(**kwargs)
         context['Sliders'] = Slider.objects.all()
         context['Abouts'] = About.objects.first()
+        context['Services'] = Service.objects.all()
+        context['Blogs'] = Blog.objects.all()
         return context
 
 
@@ -40,12 +42,15 @@ class AboutView(ListView):
     queryset = About.objects.first()
 
 
-class ServiceView(TemplateView):
+class ServiceView(ListView):
     template_name = 'services.html'
+    context_object_name = "Services"
+    queryset = Service.objects.all()
 
 
-class BlogView(TemplateView):
+class BlogView(ListView):
     template_name = 'blog.html'
+    context_object_name = "Blogs"
     queryset = Blog.objects.all()
 
 
