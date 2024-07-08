@@ -22,7 +22,7 @@
                 <div class="card-body">
                     <h5 class="card-title">{{ blog.title }}</h5>
                     <p class="card-text">{{ blog.content|safe|truncatechars:200 }}</p>
-                    <a href="#" class="btn btn-primary">{% translate 'Detaylar' %}</a>
+                    <a href="{% url 'blog-detail' slug=blog.slug %}" class="btn btn-primary">{% translate 'Detaylar' %}</a>
                 </div>
             </div>
             {% endfor %}
