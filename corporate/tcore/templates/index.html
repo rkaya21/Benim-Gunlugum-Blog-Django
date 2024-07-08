@@ -48,136 +48,38 @@
     <h2 class="mb-4">{% translate 'Hizmetler' %}</h2>
 
     <!-- Card 1 -->
+    {% for service in Services %}
     <div class="col-md-3 mt-3">
         <div class="card">
             <div class="card-body">
-                <h5 class="card-title">Title</h5>
-                <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                <h5 class="card-title">{{ service.title }}</h5>
+                <p class="card-text">{{ service.content|safe }}</p>
             </div>
         </div>
     </div>
-
-    <!-- Card 2 -->
-    <div class="col-md-3 mt-3">
-        <div class="card">
-            <div class="card-body">
-                <h5 class="card-title">Title</h5>
-                <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-            </div>
-        </div>
-    </div>
-
-    <!-- Card 3 -->
-    <div class="col-md-3 mt-3">
-        <div class="card">
-            <div class="card-body">
-                <h5 class="card-title">Title</h5>
-                <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-            </div>
-        </div>
-    </div>
-
-    <!-- Card 4 -->
-    <div class="col-md-3 mt-3">
-        <div class="card">
-            <div class="card-body">
-                <h5 class="card-title">Title</h5>
-                <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-            </div>
-        </div>
-    </div>
-
-    <!-- Card 5 -->
-    <div class="col-md-3 mt-3">
-        <div class="card">
-            <div class="card-body">
-                <h5 class="card-title">Title</h5>
-                <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-            </div>
-        </div>
-    </div>
-
-    <!-- Card 6 -->
-    <div class="col-md-3 mt-3">
-        <div class="card">
-            <div class="card-body">
-                <h5 class="card-title">Title</h5>
-                <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-            </div>
-        </div>
-    </div>
-
-    <!-- Card 7 -->
-    <div class="col-md-3 mt-3">
-        <div class="card">
-            <div class="card-body">
-                <h5 class="card-title">Title</h5>
-                <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-            </div>
-        </div>
-    </div>
-
-    <!-- Card 8 -->
-    <div class="col-md-3 mt-3">
-        <div class="card">
-            <div class="card-body">
-                <h5 class="card-title">Title</h5>
-                <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-            </div>
-        </div>
-    </div>
+ {% endfor %}
 </div>
+
+
 <!--Services→
 
 <! --Blogs-->
 <div class="row mt-4 mb-4">
     <h2 class="mb-4">{% translate 'Bloglar' %}</h2>
+
     <!-- Card 1 -->
+    {% for blog in Blogs %}
     <div class="col-md-3">
         <div class="card">
-            <img src="https://via.placeholder.com/200x150" class="card-img-top" alt="Resim 1">
+            <img src="media/{{ blog.image }}" class="card-img-top" alt="{{ blog.title }}">
             <div class="card-body">
-                <h5 class="card-title">Başlık 1</h5>
-                <p class="card-text">Açıklama metni buraya yazılır. Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                <h5 class="card-title">{{ blog.title }}</h5>
+                <p class="card-text">{{ blog.content|safe|truncatechars:200 }}</p>
                 <a href="#" class="btn btn-primary">{% translate 'Detaylar' %}</a>
             </div>
         </div>
     </div>
-
-    <!-- Card 2 -->
-    <div class="col-md-3">
-        <div class="card">
-            <img src="https://via.placeholder.com/200x150" class="card-img-top" alt="Resim 2">
-            <div class="card-body">
-                <h5 class="card-title">Başlık 2</h5>
-                <p class="card-text">Açıklama metni buraya yazılır. Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-                <a href="#" class="btn btn-primary">{% translate 'Detaylar' %}</a>
-            </div>
-        </div>
-    </div>
-
-    <!-- Card 3 -->
-    <div class="col-md-3">
-        <div class="card">
-            <img src="https://via.placeholder.com/200x150" class="card-img-top" alt="Resim 3">
-            <div class="card-body">
-                <h5 class="card-title">Başlık 3</h5>
-                <p class="card-text">Açıklama metni buraya yazılır. Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-                <a href="#" class="btn btn-primary">{% translate 'Detaylar' %}</a>
-            </div>
-        </div>
-    </div>
-
-    <div class="col-md-3">
-        <div class="card">
-            <img src="https://via.placeholder.com/200x150" class="card-img-top" alt="Resim 3">
-            <div class="card-body">
-                <h5 class="card-title">Başlık 4</h5>
-                <p class="card-text">Açıklama metni buraya yazılır. Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-                <a href="#" class="btn btn-primary">{% translate 'Detaylar' %}</a>
-            </div>
-        </div>
-    </div>
+    {% endfor %}
 </div>
     <!--Blogs-->
 
