@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load i18n %}
+
+{% block title %}{{ blog.title }}{% endblock %}
+{% block extracss %}{% endblock %}
+{% block content %}
+
+   <!--Blogs-->
+<div class="row mt-4 mb-4">
+    <!-- Main Content Area -->
+    <div class="col-md-8">
+        <h2 class="mb-4">{{ blog.title }}</h2>
+        <!-- Blog Cards (Assuming you will have dynamic content) -->
+        <div class="col-md-4 mb-3">
+            <!-- Card 1 -->
+            <div class="card mb-3">
+                <img src="{% get_media_prefix %}{{ blog.image }}" class="card-img-top" alt="{{ blog.title }}">
+                <div class="card-body">
+                    <h5 class="card-title">{{ blog.title }}</h5>
+                    <p class="card-text">{{ blog.content|safe }}</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    {% include 'includes/sidebar.html' %}
+</div>
+<!--Blogs-->
+{% endblock %}
