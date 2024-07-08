@@ -1,7 +1,6 @@
 # Benim Günlüğüm-Blog
 
-Projemde ki amacım okuduğum kitaplardaki fikirleri soyutlayıp kendi fikirlerimle anlatabilmek. Antik yunan tarihi gibi, felsefi metinler, kişisel gelişim türlerinde okumalar yapıp buradan çıkarımlarımı gerek sosyal gerek yorumlama anlamında zeminden hazırlayıp soyut anlama taşıyıp, açıklayarak kendimi geliştirmek istediğim bir blog olmasını istiyorum.
-
+Projemde ki amacım Django MVT yapısını anlamak ve blog sayfamda kendi fikirlerimi paylaşabileceğim dinamik bir web sitesi hazırlamak
 ## Projemde Kullandığım Teknolojiler
 
 - Django
