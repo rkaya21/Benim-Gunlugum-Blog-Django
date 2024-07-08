@@ -1,4 +1,4 @@
-from django.views.generic import TemplateView, ListView
+from django.views.generic import TemplateView, ListView, DetailView
 from django.conf import settings
 from django.utils import translation
 from django.urls.base import resolve, reverse
@@ -52,6 +52,13 @@ class BlogView(ListView):
     template_name = 'blog.html'
     context_object_name = "Blogs"
     queryset = Blog.objects.all()
+
+
+class BlogDetailView(DetailView):
+    model = Blog
+    template_name = 'blog-details.html'
+    context_object_name = "blog"
+    slug_url_kwarg = "slug"
 
 
 class ContactView(TemplateView):
