@@ -1,0 +1,56 @@
+{% load static %}
+{% load i18n %}
+
+<!-- Sidebar Area -->
+    <div class="col-md-4">
+        <div class="card mb-3">
+            <div class="card-body">
+                <h5 class="card-title">{% translate 'Arama' %}</h5>
+                <form>
+                    <div class="mb-3">
+                        <input type="text" class="form-control" placeholder="Search...">
+                    </div>
+                    <button type="submit" class="btn btn-primary">{% translate 'Arama' %}</button>
+                </form>
+            </div>
+        </div>
+
+        <!-- Popular Blogs -->
+        <div class="card mb-3">
+            <div class="card-body">
+                <h5 class="card-title mb-4">{% translate 'Popüler Blog' %}</h5>
+                <ul class="list-group">
+
+                    <!-- Blog 1 -->
+                    <li class="list-group-item">
+                        <h5 class="card-title">Engaging Content Strategies</h5>
+                        <p class="card-text">Discover effective strategies for creating engaging and valuable
+                            content that resonates with your audience.</p>
+                    </li>
+
+                </ul>
+            </div>
+        </div>
+
+        <!-- Categories -->
+        <div class="card mb-3">
+            <div class="card-body">
+                <h5 class="card-title">{% translate 'Kategoriler' %}</h5>
+                <!-- List of categories -->
+                <ul class="list-group list-group-flush">
+                    <li class="list-group-item">Category 01</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Tags Cloud -->
+        <div style="margin-bottom: 60px !important;" class="card mt-4">
+            <div class="card-body">
+                <h5 class="card-title">{% translate 'Etiketler' %}</h5>
+                <!-- Tags cloud -->
+                <div class="col-md-12">
+                    <button type="button" class="btn btn-secondary my-2 me-1">Tag 1</button>
+                </div>
+            </div>
+        </div>
+    </div>
