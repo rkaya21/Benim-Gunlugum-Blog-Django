@@ -37,9 +37,13 @@
             <div class="card-body">
                 <h5 class="card-title">{% translate 'Kategoriler' %}</h5>
                 <!-- List of categories -->
+
                 <ul class="list-group list-group-flush">
-                    <li class="list-group-item">Category 01</li>
+                     {% for category in Categories %}
+                    <a class="list-group-item" href="{% url 'category-detail' category.slug %}">{{ category.name }}</a>
+                    {% endfor %}
                 </ul>
+
             </div>
         </div>
 
