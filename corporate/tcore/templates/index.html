@@ -31,13 +31,13 @@
 
     <!-- About Me -->
     <div class="row mt-4 mb-4">
-        <div class="col-md-8">
+        <div class="col-md-8 col-12 mb-4 mb-md-0">
             <h2 class="mb-4">{{ Abouts.title }}</h2>
-            <p>{{ Abouts.content|safe|truncatechars:800 }}</p>
+            <p>{{ Abouts.content|safe|truncatechars:700 }}</p>
             <a href="{% url 'about' %}" class="btn btn-primary">{% translate 'Daha Fazla' %}</a>
         </div>
 
-        <div class="col-md-4">
+        <div class="col-md-4 col-12">
             <img src="https://via.placeholder.com/400x300" alt="Hakkımızda Resmi" class="img-fluid">
         </div>
     </div>
