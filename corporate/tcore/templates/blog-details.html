@@ -12,13 +12,20 @@
     <div class="col-md-8">
         <h2 class="mb-4">{{ blog.title }}</h2>
         <!-- Blog Cards (Assuming you will have dynamic content) -->
-        <div class="col-md-4 mb-3">
+        <div class="col-md-12 mb-3">
             <!-- Card 1 -->
-            <div class="card mb-3">
-                <img src="{% get_media_prefix %}{{ blog.image }}" class="card-img-top" alt="{{ blog.title }}">
+            <div class="card mb-2">
+                <img src="{% get_media_prefix %}{{ blog.image }}" class="card-img-top" alt="{{ blog.title }}" style="width: 100%; max-width: 900px;">
                 <div class="card-body">
+                    <p>Görüntülenme Sayısı: {{ object.views }}</p>
                     <h5 class="card-title">{{ blog.title }}</h5>
                     <p class="card-text">{{ blog.content|safe }}</p>
+                    <p>Etiketler:</p>
+                    {% for tag in blog.tags.all %}
+                        <div class="col-md-12">
+                            <button type="button" class="btn btn-secondary my-2 me-1">{{ tag.name }}</button>
+                        </div>
+                    {% endfor %}
                 </div>
             </div>
         </div>
