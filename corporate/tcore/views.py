@@ -5,6 +5,8 @@ from django.urls.base import resolve, reverse
 from django.urls.exceptions import Resolver404
 from urllib.parse import urlparse
 from django.http import HttpResponseRedirect
+from taggit.models import Tag
+from django.db.models import Count
 
 from tcore.models import Blog, Slider, About, Service, Category
 
@@ -30,6 +32,8 @@ class BaseView(object):
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         context['Categories'] = Category.objects.all()  # Tüm kategorileri context'e Ekle
+        context['PBlogs'] = Blog.objects.order_by('-views')[:5] # popüler blogları sıralayalım
+        context['most_common_tags'] = Tag.objects.annotate(num_times=Count('taggit_taggeditem_items')).order_by('-num_times')[:5]
         return context
 
 
@@ -78,12 +82,22 @@ class BlogView(BaseView, ListView):  # error: BaseView önde olmalı.
 
 class BlogDetailView(BaseView, DetailView):  # error: BaseView önde olmalı.
     """
-    Blog listesi sayfasında Detaylar butonuna bastığında açılan detaylar sayfası için View
+    Blog listesi sayfasında Detaylar butonuna bastığımda açılan detay BlogDetailView
     """
     model = Blog
     template_name = 'blog-details.html'
     context_object_name = "blog"
     slug_url_kwarg = "slug"
+
+    def get_object(self, queryset=None):
+        """
+        Blog yazımdan herhangi birinde detaylara
+        tıklanırsa kaç kere görüntüleneceğini gösteririz.
+        """
+        obj = super().get_object(queryset=queryset)
+        obj.views += 1
+        obj.save()
+        return obj
 
 
 class CategoryDetailView(BaseView, ListView):  # error: BaseView önde olmalı.
