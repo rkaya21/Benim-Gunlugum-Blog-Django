@@ -2,6 +2,7 @@ from django.db import models
 from ckeditor.fields import RichTextField
 from django.utils.text import slugify
 from django.utils.translation import gettext_lazy as _
+from taggit.managers import TaggableManager
 
 
 class Contact(models.Model):
@@ -77,6 +78,7 @@ class Blog(models.Model):
     slug = models.SlugField(max_length=200, unique=True, blank=True, editable=False)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
+    tags = TaggableManager()
 
     def save(self, *args, **kwargs):
         if not self.slug:
