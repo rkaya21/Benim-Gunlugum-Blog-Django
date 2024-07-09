@@ -20,14 +20,13 @@
             <div class="card-body">
                 <h5 class="card-title mb-4">{% translate 'Popüler Blog' %}</h5>
                 <ul class="list-group">
-
                     <!-- Blog 1 -->
+                    {% for pblog in PBlogs %}
                     <li class="list-group-item">
-                        <h5 class="card-title">Engaging Content Strategies</h5>
-                        <p class="card-text">Discover effective strategies for creating engaging and valuable
-                            content that resonates with your audience.</p>
+                        <a class="text-decoration-none" href="{% url 'blog-detail' pblog.slug %}"><h5 class="card-title">{{ pblog.title }}</h5></a>
+                        <p class="card-text">{{ pblog.content|safe| truncatechars:100 }}</p>
                     </li>
-
+                    {% endfor %}
                 </ul>
             </div>
         </div>
@@ -43,7 +42,6 @@
                     <a class="list-group-item" href="{% url 'category-detail' category.slug %}">{{ category.name }}</a>
                     {% endfor %}
                 </ul>
-
             </div>
         </div>
 
@@ -52,9 +50,11 @@
             <div class="card-body">
                 <h5 class="card-title">{% translate 'Etiketler' %}</h5>
                 <!-- Tags cloud -->
+                {% for tag in most_common_tags %}
                 <div class="col-md-12">
-                    <button type="button" class="btn btn-secondary my-2 me-1">Tag 1</button>
+                    <button type="button" class="btn btn-secondary my-2 me-1">{{ tag.name }} {{ tag.num_times }}</button>
                 </div>
+                {% endfor %}
             </div>
         </div>
     </div>
