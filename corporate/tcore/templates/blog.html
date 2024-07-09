@@ -12,7 +12,7 @@
 <div class="row mt-3 mb-3">
     <!-- Main Content Area -->
     <div class="col-md-8">
-        <h2 class="mb-2">{% translate 'Bloglar' %}</h2>
+        <h2 class="mb-4">{% translate 'Bloglar' %}</h2>
         <div class="row">
             <!-- Blog Cards -->
             {% for blog in Blogs %}
@@ -21,7 +21,7 @@
                     <img src="media/{{ blog.image }}" class="card-img-top" alt="{{ blog.title }}">
                     <div class="card-body">
                         <h5 class="card-title">{{ blog.title }}</h5>
-                        <p class="card-text">{{ blog.content|safe|truncatechars:200 }}</p>
+                        <p class="card-text">{{ blog.content|safe|truncatechars:250 }}</p>
                         <a href="{% url 'blog-detail' slug=blog.slug %}" class="btn btn-primary">{% translate 'Detaylar' %}</a>
                     </div>
                 </div>
