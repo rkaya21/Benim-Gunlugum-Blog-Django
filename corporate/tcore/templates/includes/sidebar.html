@@ -6,9 +6,9 @@
         <div class="card mb-3">
             <div class="card-body">
                 <h5 class="card-title">{% translate 'Arama' %}</h5>
-                <form>
+                <form method="get" action="{% url 'blog-search' %}">
                     <div class="mb-3">
-                        <input type="text" class="form-control" placeholder="Search...">
+                        <input type="text" name="q" class="form-control" placeholder="Search...">
                     </div>
                     <button type="submit" class="btn btn-primary">{% translate 'Arama' %}</button>
                 </form>
