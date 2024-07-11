@@ -10,6 +10,11 @@
 <!--Contacts-->
 <div class="container mt-4 mb-4">
     <h2 class="mb-4">{% translate 'İletişim Formu' %}</h2>
+    {% if messages %}
+    {% for message in messages %}
+        <div class="alert alert-info">{{ message }}</div>
+    {% endfor %}
+    {% endif %}
     <form>
         <div class="mb-3">
             <label for="fullName" class="form-label">{% translate 'Ad Soyad' %}</label>
