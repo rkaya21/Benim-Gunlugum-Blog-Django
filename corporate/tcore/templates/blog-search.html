@@ -1,0 +1,54 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load i18n %}
+
+{% block title %}Blog{% endblock %}
+{% block page_description %}Blog sayfa içeriği {% endblock %}
+
+{% block extracss %}{% endblock %}
+{% block content %}
+
+<!-- Blogs -->
+<div class="row mt-3 mb-3">
+    <!-- Main Content Area -->
+    <div class="col-md-8">
+        <h2 class="mb-4">{% translate 'Bloglar' %}</h2>
+        <div class="row">
+            <!-- Blog Cards -->
+            {% for blog in object_list %}
+            <div class="col-md-4 mb-3">
+                <div class="card">
+                    <img src="{% get_media_prefix %}{{ blog.image }}" class="card-img-top" alt="{{ blog.title }}">
+                    <div class="card-body">
+                        <h5 class="card-title">{{ blog.title }}</h5>
+                        <p class="card-text">{{ blog.content|safe|truncatechars:250 }}</p>
+                        <a href="{% url 'blog-detail' slug=blog.slug %}" class="btn btn-primary">{% translate 'Detaylar' %}</a>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+        <nav style="margin-bottom: 50px !important;" aria-label="Page navigation example">
+            <ul class="pagination">
+                <li class="page-item">
+                    <a class="page-link" href="#" aria-label="Previous">
+                        <span aria-hidden="true">&laquo;</span>
+                    </a>
+                </li>
+                <li class="page-item"><a class="page-link" href="#">1</a></li>
+                <li class="page-item"><a class="page-link" href="#">2</a></li>
+                <li class="page-item"><a class="page-link" href="#">3</a></li>
+                <li class="page-item">
+                    <a class="page-link" href="#" aria-label="Next">
+                        <span aria-hidden="true">&raquo;</span>
+                    </a>
+                </li>
+            </ul>
+        </nav>
+    </div>
+    <!-- Sidebar -->
+    {% include 'includes/sidebar.html' %}
+</div>
+<!-- End Blogs -->
+
+{% endblock %}
