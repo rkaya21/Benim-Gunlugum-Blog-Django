@@ -1,5 +1,5 @@
 from django.urls import path
-from .views import IndexView, AboutView, ServiceView, BlogView, ContactView, BlogDetailView, CategoryDetailView
+from .views import IndexView, AboutView, ServiceView, BlogView, ContactView, BlogDetailView, CategoryDetailView, BlogSearchView
 
 
 urlpatterns = [
@@ -9,5 +9,6 @@ urlpatterns = [
     path('blog', BlogView.as_view(), name='blog'),
     path('blog/<slug:slug>/', BlogDetailView.as_view(), name='blog-detail'),
     path('category/<slug:slug>/', CategoryDetailView.as_view(), name='category-detail'),
+    path('search/', BlogSearchView.as_view(), name='blog-search'),
     path('contact', ContactView.as_view(), name='contact')
 ]
