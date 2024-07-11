@@ -138,3 +138,35 @@ LOCALE_PATHS = [os.path.join(BASE_DIR, 'locale')]
 # https://docs.djangoproject.com/en/5.0/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+
+#  SMTP Ayarları
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = 'smtp.gmail.com' #  Mail sunucusu
+EMAIL_PORT = 587 #  Port
+EMAIL_USE_TLS = False     #  SSL
+EMAIL_HOST_USER = 'your_email@gmail.com'      #  Mail adres
+EMAIL_HOST_PASSWORD = 'your_email_password'  #  Mail adres şifresi
+'''
+django-environ ile hassas bilgileri .env dosyasında saklayabiliriz.
+örneğin . env dosyası
+EMAIL_HOST=smtp.gmail.com
+EMAIL_PORT=587
+EMAIL_USE_TLS=True
+EMAIL_HOST_USER=your_email@gmail.com
+EMAIL_HOST_PASSWORD=your_email_password
+ve daha sonra environ paketini import edip settings.py bu şekilde düzenlenebilir.
+
+# .env dosyasını yükle
+env = environ.Env()
+environ.Env.read_env()
+
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = env('EMAIL_HOST')
+EMAIL_PORT = env('EMAIL_PORT')
+EMAIL_USE_TLS = env.bool('EMAIL_USE_TLS')
+EMAIL_HOST_USER = env('EMAIL_HOST_USER')
+EMAIL_HOST_PASSWORD = env('EMAIL_HOST_PASSWORD')
+
+bu şekilde daha güvenli olur.
+'''
