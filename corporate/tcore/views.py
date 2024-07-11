@@ -7,7 +7,8 @@ from urllib.parse import urlparse
 from django.http import HttpResponseRedirect
 from taggit.models import Tag
 from django.db.models import Count
-
+from django.core.mail import send_mail
+from django.contrib import messages
 from tcore.models import Blog, Slider, About, Service, Category
 
 
@@ -133,3 +134,26 @@ class BlogSearchView(BaseView, ListView):
             return Blog.objects.filter(title__icontains=query)
         return Blog.objects.none()
 
+
+class ContactView(TemplateView):
+    template_name = 'contact.html'
+
+    def post(self, request, *args, **kwargs):
+        fullName = request.POST.get('fullName')
+        phoneNumber = request.POST.get('phoneNumber')
+        email = request.POST.get('email')
+        message = request.POST.get('message')
+
+        try:
+            send_mail(
+                f'{fullName} tarafından yeni bir mesajınız var.',
+                f'Mesaj: {message}\nTelefon: {phoneNumber}\nEmail: {email}',
+                'django@recepeneskaya.com.tr',   # örnek
+                ['info@recepeneskaya.com.tr'],  # örnek
+                fail_silently=False,
+            )
+            messages.success(request, 'Mesajın başarıyla gönderildi.')
+        except Exception as e:
+            messages.error(request, f'Mesaj gönderimi başarısız oldu. {e}')
+
+        return HttpResponseRedirect(reverse('contact'))
