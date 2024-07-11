@@ -78,6 +78,7 @@ class BlogView(BaseView, ListView):  # error: BaseView önde olmalı.
     template_name = 'blog.html'
     context_object_name = "Blogs"
     queryset = Blog.objects.all()
+    paginate_by = 2
 
 
 class BlogDetailView(BaseView, DetailView):  # error: BaseView önde olmalı.
@@ -120,3 +121,15 @@ class ContactView(TemplateView):
     İletişime geçilmesi için oluşturduğum View.
     """
     template_name = 'contact.html'
+
+
+class BlogSearchView(BaseView, ListView):
+    model = Blog
+    template_name = 'blog-search.html'
+
+    def get_queryset(self):
+        query = self.request.GET.get('q')
+        if query:
+            return Blog.objects.filter(title__icontains=query)
+        return Blog.objects.none()
+
