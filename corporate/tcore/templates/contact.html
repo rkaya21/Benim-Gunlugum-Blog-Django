@@ -15,7 +15,8 @@
         <div class="alert alert-info">{{ message }}</div>
     {% endfor %}
     {% endif %}
-    <form>
+    <form method="post" action="{% url 'contact' %}">
+        {% csrf_token %}
         <div class="mb-3">
             <label for="fullName" class="form-label">{% translate 'Ad Soyad' %}</label>
             <input type="text" class="form-control" id="fullName" name="fullName" required>

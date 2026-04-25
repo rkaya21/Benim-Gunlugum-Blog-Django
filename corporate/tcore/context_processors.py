@@ -2,8 +2,5 @@ from .models import Setting
 
 
 def SettingList(request):
-    try:
-        context = Setting.objects.get()
-    except Setting.DoesNotExist:
-        context = None
+    context = Setting.objects.first()
     return {'settings': context}

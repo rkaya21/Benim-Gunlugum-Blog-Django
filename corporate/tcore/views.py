@@ -9,6 +9,7 @@ from taggit.models import Tag
 from django.db.models import Count
 from django.core.mail import send_mail
 from django.contrib import messages
+from django.shortcuts import get_object_or_404
 from tcore.models import Blog, Slider, About, Service, Category
 
 
@@ -72,7 +73,7 @@ class ServiceView(ListView):
     queryset = Service.objects.all()
 
 
-class BlogView(BaseView, ListView):  # error: BaseView önde olmalı.
+class BlogView(BaseView, ListView):  # Not: BaseView önde olmalı.
     """
     Blog listeleri sayfası için oluşturduğum View
     """
@@ -82,7 +83,7 @@ class BlogView(BaseView, ListView):  # error: BaseView önde olmalı.
     paginate_by = 2
 
 
-class BlogDetailView(BaseView, DetailView):  # error: BaseView önde olmalı.
+class BlogDetailView(BaseView, DetailView):  # Not: BaseView önde olmalı.
     """
     Blog listesi sayfasında Detaylar butonuna bastığımda açılan detay BlogDetailView
     """
@@ -102,7 +103,7 @@ class BlogDetailView(BaseView, DetailView):  # error: BaseView önde olmalı.
         return obj
 
 
-class CategoryDetailView(BaseView, ListView):  # error: BaseView önde olmalı.
+class CategoryDetailView(BaseView, ListView):  # Not: BaseView önde olmalı.
     """
     Blog listelerini Dashboard'dan belirli kategoriye göre ekliyorum.Örneğin,
     Felsefe kategorisine bastığınızda Felsefe ile ilgili blogları sorgular.
@@ -113,7 +114,7 @@ class CategoryDetailView(BaseView, ListView):  # error: BaseView önde olmalı.
 
     def get_queryset(self):
         slug = self.kwargs.get('slug')
-        category = Category.objects.get(slug=slug)
+        category = get_object_or_404(Category, slug=slug)
         return Blog.objects.filter(category=category)
 
 
@@ -132,21 +133,21 @@ class ContactView(TemplateView):
     template_name = 'contact.html'
 
     def post(self, request, *args, **kwargs):
-        fullName = request.POST.get('fullName')
-        phoneNumber = request.POST.get('phoneNumber')
+        full_name = request.POST.get('fullName')
+        phone_number = request.POST.get('phoneNumber')
         email = request.POST.get('email')
         message = request.POST.get('message')
 
         try:
             send_mail(
-                f'{fullName} tarafından yeni bir mesajınız var.',
-                f'Mesaj: {message}\nTelefon: {phoneNumber}\nEmail: {email}',
-                'django@recepeneskaya.com.tr',   # örnek
-                ['info@recepeneskaya.com.tr'],  # örnek
+                f'{full_name} tarafından yeni bir mesajınız var.',
+                f'Mesaj: {message}\nTelefon: {phone_number}\nEmail: {email}',
+                'django@recepeneskaya.com.tr',   # Not: örnek
+                ['info@recepeneskaya.com.tr'],  # Not: örnek
                 fail_silently=False,
             )
             messages.success(request, 'Mesajın başarıyla gönderildi.')
-        except Exception as e:
-            messages.error(request, f'Mesaj gönderimi başarısız oldu. {e}')
+        except Exception as exc:
+            messages.error(request, f'Mesaj gönderimi başarısız oldu. {exc}')
 
         return HttpResponseRedirect(reverse('contact'))
