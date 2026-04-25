@@ -16,16 +16,26 @@ from django.utils.translation import gettext_lazy as _
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
+# .env dosyasını yükle
+_env_file = BASE_DIR / '.env'
+if _env_file.exists():
+    with open(_env_file) as _f:
+        for _line in _f:
+            _line = _line.strip()
+            if _line and not _line.startswith('#') and '=' in _line:
+                _key, _value = _line.split('=', 1)
+                os.environ.setdefault(_key.strip(), _value.strip())
+
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/5.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = '***REMOVED***'
+SECRET_KEY = os.environ.get('DJANGO_SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = os.environ.get('DEBUG', 'False') == 'True'
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = os.environ.get('ALLOWED_HOSTS', '').split(',')
 
 # Application definition
 
@@ -140,33 +150,10 @@ LOCALE_PATHS = [os.path.join(BASE_DIR, 'locale')]
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 
-#  SMTP Ayarları
+#  SMTP Ayarları — hassas bilgiler .env dosyasından okunur, bkz. .env.example
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
-EMAIL_HOST = 'smtp.gmail.com' #  Mail sunucusu
-EMAIL_PORT = 587 #  Port
-EMAIL_USE_TLS = False     #  SSL
-EMAIL_HOST_USER = 'your_email@gmail.com'      #  Mail adres
-EMAIL_HOST_PASSWORD = 'your_email_password'  #  Mail adres şifresi
-'''
-django-environ ile hassas bilgileri .env dosyasında saklayabiliriz.
-örneğin . env dosyası
-EMAIL_HOST=smtp.gmail.com
-EMAIL_PORT=587
-EMAIL_USE_TLS=True
-EMAIL_HOST_USER=your_email@gmail.com
-EMAIL_HOST_PASSWORD=your_email_password
-ve daha sonra environ paketini import edip settings.py bu şekilde düzenlenebilir.
-
-# .env dosyasını yükle
-env = environ.Env()
-environ.Env.read_env()
-
-EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
-EMAIL_HOST = env('EMAIL_HOST')
-EMAIL_PORT = env('EMAIL_PORT')
-EMAIL_USE_TLS = env.bool('EMAIL_USE_TLS')
-EMAIL_HOST_USER = env('EMAIL_HOST_USER')
-EMAIL_HOST_PASSWORD = env('EMAIL_HOST_PASSWORD')
-
-bu şekilde daha güvenli olur.
-'''
+EMAIL_HOST = os.environ.get('EMAIL_HOST')
+EMAIL_PORT = int(os.environ.get('EMAIL_PORT', 587))
+EMAIL_USE_TLS = os.environ.get('EMAIL_USE_TLS', 'True') == 'True'
+EMAIL_HOST_USER = os.environ.get('EMAIL_HOST_USER')
+EMAIL_HOST_PASSWORD = os.environ.get('EMAIL_HOST_PASSWORD')

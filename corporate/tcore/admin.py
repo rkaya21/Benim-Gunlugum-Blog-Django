@@ -25,7 +25,7 @@ class AboutAdmin(TranslationAdmin, BaseAdmin):
 
 @admin.register(Service)
 class ServiceAdmin(TranslationAdmin, CommonMedia):
-    last_display = ('title',)
+    list_display = ('title',)
 
 
 @admin.register(Slider)

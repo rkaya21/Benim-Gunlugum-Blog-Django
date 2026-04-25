@@ -117,13 +117,6 @@ class CategoryDetailView(BaseView, ListView):  # error: BaseView önde olmalı.
         return Blog.objects.filter(category=category)
 
 
-class ContactView(TemplateView):
-    """
-    İletişime geçilmesi için oluşturduğum View.
-    """
-    template_name = 'contact.html'
-
-
 class BlogSearchView(BaseView, ListView):
     model = Blog
     template_name = 'blog-search.html'
